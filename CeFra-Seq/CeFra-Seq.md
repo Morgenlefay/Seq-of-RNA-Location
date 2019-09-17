@@ -82,6 +82,10 @@ hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/HeLa-S3/Cytosol_1_1.f
 hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/HeLa-S3/Cytosol_2_1.fastq.gz -2 CeFra_seq/HeLa-S3/Cytosol_2_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/HeLa-S3/Cytosol_2.bam
 hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/HeLa-S3/Nuclear_1_1.fastq.gz -2 CeFra_seq/HeLa-S3/Nuclear_1_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/HeLa-S3/Nuclear_1.bam
 hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/HeLa-S3/Nuclear_2_1.fastq.gz -2 CeFra_seq/HeLa-S3/Nuclear_2_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/HeLa-S3/Nuclear_2.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/SK-N-SH/Cytosol_1_1.fastq.gz -2 CeFra_seq/SK-N-SH/Cytosol_1_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/SK-N-SH/Cytosol_1.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/SK-N-SH/Cytosol_2_1.fastq.gz -2 CeFra_seq/SK-N-SH/Cytosol_2_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/SK-N-SH/Cytosol_2.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/SK-N-SH/Nuclear_1_1.fastq.gz -2 CeFra_seq/SK-N-SH/Nuclear_1_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/SK-N-SH/Nuclear_1.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/SK-N-SH/Nuclear_2_1.fastq.gz -2 CeFra_seq/SK-N-SH/Nuclear_2_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/SK-N-SH/Nuclear_2.bam
 ```
 
 ### Step4-Stringtie
@@ -107,6 +111,11 @@ stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeF
 stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_HeLa-S3_Cytosol_2/CeFra_HeLa-S3_Cytosol_2.gtf CeFra_seq/HeLa-S3/Cytosol_2.bam
 stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_HeLa-S3_Nuclear_1/CeFra_HeLa-S3_Nuclear_1.gtf CeFra_seq/HeLa-S3/Nuclear_1.bam
 stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_HeLa-S3_Nuclear_2/CeFra_HeLa-S3_Nuclear_2.gtf CeFra_seq/HeLa-S3/Nuclear_2.bam
+
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_SK-N-SH_Cytosol_1/CeFra_SK-N-SH_Cytosol_1.gtf CeFra_seq/SK-N-SH/Cytosol_1.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_SK-N-SH_Cytosol_2/CeFra_SK-N-SH_Cytosol_2.gtf CeFra_seq/SK-N-SH/Cytosol_2.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_SK-N-SH_Nuclear_1/CeFra_SK-N-SH_Nuclear_1.gtf CeFra_seq/SK-N-SH/Nuclear_1.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_SK-N-SH_Nuclear_2/CeFra_SK-N-SH_Nuclear_2.gtf CeFra_seq/SK-N-SH/Nuclear_2.bam
 ```
 ### Step5-Ballgown
 
