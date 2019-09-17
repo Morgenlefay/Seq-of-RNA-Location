@@ -59,3 +59,52 @@ done
 multiqc CeFra_seq/FastQC_1 -o CeFra_seq/FastQC_1
 ```
 
+### Step3-Hisat2
+
+```bash
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/HepG2/Cytosol_1_1.fastq.gz -2 CeFra_seq/HepG2/Cytosol_1_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/HepG2/Cytosol_1.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/HepG2/Cytosol_2_1.fastq.gz -2 CeFra_seq/HepG2/Cytosol_2_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/HepG2/Cytosol_2.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/HepG2/Insoluble_1_1.fastq.gz -2 CeFra_seq/HepG2/Insoluble_1_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/HepG2/Insoluble_1.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/HepG2/Insoluble_2_1.fastq.gz -2 CeFra_seq/HepG2/Insoluble_2_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/HepG2/Insoluble_2.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/HepG2/Membrane_1_1.fastq.gz -2 CeFra_seq/HepG2/Membrane_1_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/HepG2/Membrane_1.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/HepG2/Membrane_2_1.fastq.gz -2 CeFra_seq/HepG2/Membrane_2_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/HepG2/Membrane_2.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/HepG2/Nuclear_1_1.fastq.gz -2 CeFra_seq/HepG2/Nuclear_1_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/HepG2/Nuclear_1.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/HepG2/Nuclear_2_1.fastq.gz -2 CeFra_seq/HepG2/Nuclear_2_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/HepG2/Nuclear_2.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/K562/Cytosol_1_1.fastq.gz -2 CeFra_seq/K562/Cytosol_1_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/K562/Cytosol_1.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/K562/Cytosol_2_1.fastq.gz -2 CeFra_seq/K562/Cytosol_2_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/K562/Cytosol_2.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/K562/Insoluble_1_1.fastq.gz -2 CeFra_seq/K562/Insoluble_1_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/K562/Insoluble_1.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/K562/Insoluble_2_1.fastq.gz -2 CeFra_seq/K562/Insoluble_2_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/K562/Insoluble_2.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/K562/Membrane_1_1.fastq.gz -2 CeFra_seq/K562/Membrane_1_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/K562/Membrane_1.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/K562/Membrane_2_1.fastq.gz -2 CeFra_seq/K562/Membrane_2_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/K562/Membrane_2.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/K562/Nuclear_1_1.fastq.gz -2 CeFra_seq/K562/Nuclear_1_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/K562/Nuclear_1.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/K562/Nuclear_2_1.fastq.gz -2 CeFra_seq/K562/Nuclear_2_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/K562/Nuclear_2.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/HeLa-S3/Cytosol_1_1.fastq.gz -2 CeFra_seq/HeLa-S3/Cytosol_1_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/HeLa-S3/Cytosol_1.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/HeLa-S3/Cytosol_2_1.fastq.gz -2 CeFra_seq/HeLa-S3/Cytosol_2_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/HeLa-S3/Cytosol_2.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/HeLa-S3/Nuclear_1_1.fastq.gz -2 CeFra_seq/HeLa-S3/Nuclear_1_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/HeLa-S3/Nuclear_1.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -1 CeFra_seq/HeLa-S3/Nuclear_2_1.fastq.gz -2 CeFra_seq/HeLa-S3/Nuclear_2_2.fastq.gz | samtools sort -@4 -O bam -o CeFra_seq/HeLa-S3/Nuclear_2.bam
+```
+
+### Step4-Stringtie
+
+```bash
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_HepG2_Cytosol_1/CeFra_HepG2_Cytosol_1.gtf CeFra_seq/HepG2/Cytosol_1.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_HepG2_Cytosol_2/CeFra_HepG2_Cytosol_2.gtf CeFra_seq/HepG2/Cytosol_2.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_HepG2_Insoluble_1/CeFra_HepG2_Insoluble_1.gtf CeFra_seq/HepG2/Insoluble_1.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_HepG2_Insoluble_2/CeFra_HepG2_Insoluble_2.gtf CeFra_seq/HepG2/Insoluble_2.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_HepG2_Membrane_1/CeFra_HepG2_Membrane_1.gtf CeFra_seq/HepG2/Membrane_1.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_HepG2_Membrane_2/CeFra_HepG2_Membrane_2.gtf CeFra_seq/HepG2/Membrane_2.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_HepG2_Nuclear_1/CeFra_HepG2_Nuclear_1.gtf CeFra_seq/HepG2/Nuclear_1.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_HepG2_Nuclear_2/CeFra_HepG2_Nuclear_2.gtf CeFra_seq/HepG2/Nuclear_2.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_K562_Cytosol_1/CeFra_K562_Cytosol_1.gtf CeFra_seq/K562/Cytosol_1.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_K562_Cytosol_2/CeFra_K562_Cytosol_2.gtf CeFra_seq/K562/Cytosol_2.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_K562_Insoluble_1/CeFra_K562_Insoluble_1.gtf CeFra_seq/K562/Insoluble_1.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_K562_Insoluble_2/CeFra_K562_Insoluble_2.gtf CeFra_seq/K562/Insoluble_2.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_K562_Membrane_1/CeFra_K562_Membrane_1.gtf CeFra_seq/K562/Membrane_1.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_K562_Membrane_2/CeFra_K562_Membrane_2.gtf CeFra_seq/K562/Membrane_2.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_K562_Nuclear_1/CeFra_K562_Nuclear_1.gtf CeFra_seq/K562/Nuclear_1.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_K562_Nuclear_2/CeFra_K562_Nuclear_2.gtf CeFra_seq/K562/Nuclear_2.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_HeLa-S3_Cytosol_1/CeFra_HeLa-S3_Cytosol_1.gtf CeFra_seq/HeLa-S3/Cytosol_1.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_HeLa-S3_Cytosol_2/CeFra_HeLa-S3_Cytosol_2.gtf CeFra_seq/HeLa-S3/Cytosol_2.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_HeLa-S3_Nuclear_1/CeFra_HeLa-S3_Nuclear_1.gtf CeFra_seq/HeLa-S3/Nuclear_1.bam
+stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_HeLa-S3_Nuclear_2/CeFra_HeLa-S3_Nuclear_2.gtf CeFra_seq/HeLa-S3/Nuclear_2.bam
+```
