@@ -51,5 +51,11 @@ ls CeFra_seq/K562/*fastq.gz |  while read id; do
 $fastqc -f fastq -o CeFra_seq/FastQC_1/./ ${id} &
 done
 multiqc CeFra_seq/FastQC_1 -o CeFra_seq/FastQC_1
+
+fastqc=/home/morgenlefay/miniconda2/pkgs/fastqc-0.11.8-1/bin/fastqc
+ls CeFra_seq/SK-N-SH/*fastq.gz |  while read id; do 
+$fastqc -f fastq -o CeFra_seq/FastQC_1/./ ${id} &
+done
+multiqc CeFra_seq/FastQC_1 -o CeFra_seq/FastQC_1
 ```
 
