@@ -150,3 +150,5 @@ Gene_expression <- read.csv("gene_expression.csv")
 Gene_expression <- merge(Gene_expression,t2g)
 write.csv(Gene_expression, file="Gene_expression.csv",row.names = F)
 ```
+### Step6-Heatmap
+TBtools (https://github.com/CJ-Chen/TBtools)
