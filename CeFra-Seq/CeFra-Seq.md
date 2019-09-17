@@ -108,3 +108,37 @@ stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeF
 stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_HeLa-S3_Nuclear_1/CeFra_HeLa-S3_Nuclear_1.gtf CeFra_seq/HeLa-S3/Nuclear_1.bam
 stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeFra_HeLa-S3_Nuclear_2/CeFra_HeLa-S3_Nuclear_2.gtf CeFra_seq/HeLa-S3/Nuclear_2.bam
 ```
+### Step5-Ballgown
+
+```R
+###--------------------------
+rm(list=ls())
+options(stringsAsFactors = F)
+library(ballgown)
+bg = ballgown(dataDir="ballgown", samplePattern = "APEX", meas='all')
+gene_expression = gexpr(bg)
+write.csv(gene_expression, file="gene_expression.csv",row.names = T)
+
+###FPKM list
+Gene_expression <- read.csv("gene_expression.csv")
+ENSEMBL <- gsub("\\.\\d*", "", Gene_expression$Geneid)
+write.csv(ENSEMBL,file="ENSEMBL.csv")
+Gene_expression<- read.csv("gene_expression.csv",header = TRUE)
+index<-duplicated(Gene_expression$Geneid)
+Gene_expression<-Gene_expression[!index,]
+write.csv(Gene_expression, file="gene_expression.csv",row.names = F)
+
+###Genename list
+library(biomaRt)
+mart <- biomaRt::useMart(biomart = "ENSEMBL_MART_ENSEMBL",
+                         dataset = "hsapiens_gene_ensembl",
+                         host = 'ensembl.org')
+t2g <- biomaRt::getBM(attributes = c("ensembl_gene_id",
+                                     "external_gene_name"), mart = mart)
+t2g <- dplyr::rename(t2g, Geneid = ensembl_gene_id, ID = external_gene_name)
+
+###Merge
+Gene_expression <- read.csv("gene_expression.csv")
+Gene_expression <- merge(Gene_expression,t2g)
+write.csv(Gene_expression, file="Gene_expression.csv",row.names = F)
+```
