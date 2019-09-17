@@ -115,7 +115,7 @@ stringtie -e -B -p 8 -G Reference/GTF/gencode.v19.annotation.gtf -o ballgown/CeF
 rm(list=ls())
 options(stringsAsFactors = F)
 library(ballgown)
-bg = ballgown(dataDir="ballgown", samplePattern = "APEX", meas='all')
+bg = ballgown(dataDir="ballgown", samplePattern = "CeFra", meas='all')
 gene_expression = gexpr(bg)
 write.csv(gene_expression, file="gene_expression.csv",row.names = T)
 
