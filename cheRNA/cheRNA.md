@@ -1,7 +1,40 @@
 ## cheRNA
 ### Data
-PMID: 26257179 
+PMID: [26257179](https://www.ncbi.nlm.nih.gov/pubmed/26257179)
 
-https://www.ncbi.nlm.nih.gov/pubmed/26257179 
+### Step1-Set conda environment
+```bash
+conda create -n QC
+conda activate QC
+conda install -c bioconda fastqc
+conda install -c bioconda rseqc
+conda install -c bioconda trim-galore
+conda install -c bioconda multiqc 
+conda deactivate
 
-https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE66478
+conda create -n RNAseq
+conda activate RNAseq
+conda install -c bioconda hisat2
+conda install -c bioconda bowtie2
+conda install -c bioconda samtools
+conda install -c bioconda bedtools 
+conda install -c bioconda subread 
+conda install -c bioconda htseq
+conda install -c bioconda stringtie
+conda install -c bioconda gffcompare
+conda install -c bioconda rsem
+conda install -c bioconda cufflinks
+conda install -c bioconda tophat
+conda deactivate
+```
+### Step2-Preprocess
+
+#### FastQC and MultiQC of Raw Data
+
+```bash
+fastqc=/home/morgenlefay/miniconda2/pkgs/fastqc-0.11.8-1/bin/fastqc
+ls cheRNA/*fastq.gz |  while read id; do 
+$fastqc -f fastq -o cheRNA/FastQC_1/./ ${id} &
+done
+multiqc cheRNA/FastQC_1 -o cheRNA/FastQC_1
+```
