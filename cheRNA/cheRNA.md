@@ -38,3 +38,30 @@ $fastqc -f fastq -o cheRNA/FastQC_1/./ ${id} &
 done
 multiqc cheRNA/FastQC_1 -o cheRNA/FastQC_1
 ```
+### Step3-Hisat2
+```bash
+hisat2 -t -p 8 -x Reference/index/hg19/genome -U cheRNA/SRR1824492.fastq.gz | samtools sort -@4 -O bam -o cheRNA/SNE_1.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -U cheRNA/SRR1824493.fastq.gz | samtools sort -@4 -O bam -o cheRNA/SNE_2.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -U cheRNA/SRR1824494.fastq.gz | samtools sort -@4 -O bam -o cheRNA/SNE_3.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -U cheRNA/SRR1824495.fastq.gz | samtools sort -@4 -O bam -o cheRNA/CPE_1.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -U cheRNA/SRR1824496.fastq.gz | samtools sort -@4 -O bam -o cheRNA/CPE_2.bam
+hisat2 -t -p 8 -x Reference/index/hg19/genome -U cheRNA/SRR1824497.fastq.gz | samtools sort -@4 -O bam -o cheRNA/CPE_3.bam
+```
+### Step4-Bam2BigWig
+```bash
+chmod 775 bam2bigwig.sh
+./bam2bigwig.sh cheRNA/SNE_1.bam
+./bam2bigwig.sh cheRNA/SNE_2.bam
+./bam2bigwig.sh cheRNA/SNE_3.bam
+./bam2bigwig.sh cheRNA/CPE_1.bam
+./bam2bigwig.sh cheRNA/CPE_2.bam
+./bam2bigwig.sh cheRNA/CPE_3.bam
+```
+
+
+
+
+
+
+
+
